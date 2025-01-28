@@ -1,5 +1,5 @@
-public final class Horse extends ChessPiece {
-    public Horse(String color) {
+public final class King extends ChessPiece {
+    public King(String color) {
         super(color);
     }
 
@@ -13,14 +13,17 @@ public final class Horse extends ChessPiece {
         }
         int dLine = Math.abs(toLine - line);
         int dColumn = Math.abs(toColumn - column);
-        if (dLine == 3 && dColumn == 2 || dLine == 2 && dColumn == 3) {
+        if (dLine > 1 || dColumn > 1) {
             return false;
         }
-        return true;
+        return !isUnderAttack(chessBoard, toLine, toColumn);
+
     }
+
+
 
     @Override
     public String getSymbol() {
-        return "H";
+        return "K";
     }
 }
