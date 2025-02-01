@@ -16,45 +16,9 @@ public final class Rook extends ChessPiece {
         if (dLine > 0 && dColumn > 0) {
             return false;
         }
-        if (dLine > 0) {
-            int dir = toLine - line;
-            if (dir > 0) {
-                for (int i = line + 1; i < toLine; ++i) {
-                    if (chessBoard.board[i][toColumn] != null) {
-                        return false;
-                    }
-                }
-                return true;
-            } else {
-                for (int i = toLine - 1; i > line; --i) {
-                    if (chessBoard.board[i][toColumn] != null) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-        } else {
-            if (dColumn > 0) {
-                int dir = toLine - line;
-                if (dir > 0) {
-                    for (int j = line + 1; j < toColumn; ++j) {
-                        if (chessBoard.board[j][toLine] != null) {
-                            return false;
-                        }
-                    }
-                    return true;
-                } else {
-                    for (int j = toColumn - 1; j > column; --j) {
-                        if (chessBoard.board[j][toLine] != null) {
-                            return false;
-                        }
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
+        return horizontal(chessBoard, line, column, toLine, toColumn, dLine, dColumn) == null;
     }
+
 
     @Override
     public String getSymbol() {

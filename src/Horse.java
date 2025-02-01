@@ -13,10 +13,7 @@ public final class Horse extends ChessPiece {
         }
         int dLine = Math.abs(toLine - line);
         int dColumn = Math.abs(toColumn - column);
-        if (dLine == 3 && dColumn == 2 || dLine == 2 && dColumn == 3) {
-            return false;
-        }
-        return true;
+        return (dColumn == 1 && dLine == 2) || (dColumn == 2 && dLine == 1);
     }
 
     @Override
